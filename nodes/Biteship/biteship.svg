@@ -1,6 +1,23 @@
-<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="60" height="60" rx="8" fill="#1976D2"/>
-<path d="M15 20h30v4H15v-4zm0 8h30v4H15v-4zm0 8h20v4H15v-4z" fill="white"/>
-<circle cx="42" cy="40" r="8" fill="#FFA726"/>
-<path d="M38 36l4 4 8-8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #03beac;
+      }
+
+      .cls-2 {
+        fill: #fdfdfe;
+      }
+
+      .cls-3 {
+        fill: #772fc4;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" width="60" height="60"/>
+  <g>
+    <path class="cls-3" d="M40.5,40.24l-.26,10.11h-17.24c-5.66,0-13.35-7.66-13.35-13.35V9.65h10.11v26.57c0,1.06,2.28,3.53,3.29,3.96,5.73.1,11.46.08,17.19.06.09,0,.17,0,.26,0Z"/>
+    <path class="cls-1" d="M40.24,40.24l-.06-16.4c-.09-1.54-2.53-4.08-3.96-4.08h-6.35v-10.11h7.39c5.39,0,13.09,7.71,13.09,13.09v17.49c-3.28,0-6.57-.01-9.85,0-.09,0-.17,0-.26,0Z"/>
+  </g>
 </svg>
