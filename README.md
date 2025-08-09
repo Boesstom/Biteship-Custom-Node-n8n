@@ -1,5 +1,9 @@
 # n8n-nodes-biteship
 
+[![npm version](https://badge.fury.io/js/n8n-nodes-biteship.svg)](https://badge.fury.io/js/n8n-nodes-biteship)
+[![npm downloads](https://img.shields.io/npm/dt/n8n-nodes-biteship.svg)](https://www.npmjs.com/package/n8n-nodes-biteship)
+[![GitHub license](https://img.shields.io/github/license/Boesstom/Biteship-Custom-Node-n8n.svg)](https://github.com/Boesstom/Biteship-Custom-Node-n8n/blob/main/LICENSE)
+
 ![Biteship Custom Node Banner](https://biteship.com/assets/images/logo.png)
 
 Custom node n8n untuk integrasi dengan [Biteship API](https://biteship.com/id/docs/api), platform pengiriman Indonesia.
@@ -13,26 +17,48 @@ Custom node n8n untuk integrasi dengan [Biteship API](https://biteship.com/id/do
 
 ## Instalasi
 
+### 🎯 **Install via Community Nodes (Recommended)**
+
+1. **Buka n8n** di browser
+2. **Masuk ke Settings** → **Community Nodes**  
+3. **Klik "Install a community node"**
+4. **Masukkan package name**: `n8n-nodes-biteship`
+5. **Klik "Install"**
+6. **Restart n8n** jika diminta
+
+### 📦 **Install via npm**
+
+```bash
+# Global installation
+npm install -g n8n-nodes-biteship
+
+# Or dalam project n8n
+npm install n8n-nodes-biteship
+```
+
+### 🐳 **Install via Docker**
+
+```dockerfile
+FROM n8nio/n8n:latest
+USER root  
+RUN npm install -g n8n-nodes-biteship
+USER node
+```
+
+### 🛠️ **Install dari Source**
+
+```bash
+git clone https://github.com/Boesstom/Biteship-Custom-Node-n8n.git
+cd Biteship-Custom-Node-n8n
+npm install
+npm run build
+```
+
 ### Prasyarat
 
 - Node.js (v16 atau lebih tinggi)
 - npm atau yarn
 - n8n (v0.190.0 atau lebih tinggi)
-
-### Install via npm
-
-```bash
-npm install n8n-nodes-biteship
-```
-
-### Install dari source
-
-```bash
-git clone https://github.com/biteship/n8n-nodes-biteship.git
-cd n8n-nodes-biteship
-npm install
-npm run build
-```
 
 ## Konfigurasi
 
