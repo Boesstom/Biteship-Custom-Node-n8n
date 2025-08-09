@@ -10,14 +10,14 @@
     "courier"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Boesstom/n8n-nodes-biteship",
+  "homepage": "https://github.com/Boesstom/Biteship-Custom-Node-n8n",
   "author": {
     "name": "Boesstom",
     "email": "boesstom@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Boesstom/n8n-nodes-biteship.git"
+    "url": "git+https://github.com/Boesstom/Biteship-Custom-Node-n8n.git"
   },
   "main": "index.js",
   "scripts": {
