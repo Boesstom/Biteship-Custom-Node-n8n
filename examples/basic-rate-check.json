@@ -1,0 +1,82 @@
+{
+  "name": "Biteship - Cek Tarif Pengiriman",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "start",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "rate",
+        "operation": "checkRates",
+        "originPostalCode": "12110",
+        "destinationPostalCode": "40111",
+        "couriers": ["jne", "tiki", "pos"],
+        "items": {
+          "item": [
+            {
+              "name": "Sepatu Sneakers",
+              "description": "Sepatu olahraga premium",
+              "sku": "SNK-001",
+              "category": "Fashion",
+              "mass": 800,
+              "quantity": 1
+            }
+          ]
+        }
+      },
+      "id": "biteship",
+      "name": "Biteship Rate Check",
+      "type": "n8n-nodes-biteship.biteship",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "credentials": {
+        "biteshipApi": {
+          "id": "1",
+          "name": "Biteship API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "debug",
+      "name": "Debug Results",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Biteship Rate Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Biteship Rate Check": {
+      "main": [
+        [
+          {
+            "node": "Debug Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "1"
+}

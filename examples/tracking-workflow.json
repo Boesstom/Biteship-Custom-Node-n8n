@@ -1,0 +1,126 @@
+{
+  "name": "Biteship - Tracking Pengiriman",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "start",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "tracking",
+        "operation": "track",
+        "waybillId": "12345678901234567890",
+        "courierCode": "jne"
+      },
+      "id": "biteship-tracking",
+      "name": "Biteship Tracking",
+      "type": "n8n-nodes-biteship.biteship",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "credentials": {
+        "biteshipApi": {
+          "id": "1",
+          "name": "Biteship API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "delivered",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "delivered",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-status",
+      "name": "Check if Delivered",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "message": "Paket telah diterima! Waybill: {{ $json.waybill_id }}"
+      },
+      "id": "delivered-notification",
+      "name": "Delivered Notification",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "message": "Paket masih dalam perjalanan. Status: {{ $json.status }}"
+      },
+      "id": "in-transit-notification",
+      "name": "In Transit Notification",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [900, 400]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Biteship Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Biteship Tracking": {
+      "main": [
+        [
+          {
+            "node": "Check if Delivered",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check if Delivered": {
+      "main": [
+        [
+          {
+            "node": "Delivered Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "In Transit Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "1"
+}
